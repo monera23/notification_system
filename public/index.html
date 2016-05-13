@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lab="en" ng-app="notificationApp">
+<head>
+	<title>Notifcation App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic"> -->
+
+		<link rel="stylesheet" href="/stylesheets/materialize.min.css">
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+ <div id="main-wrapper" ng-controller="MainCtrl">
+ 
+ <!-- Code for notification Nav   -->
+   <nav class="navbar">
+        <ul class="left hide-on-med-and-down">
+            <!-- Dropdown Trigger -->
+            <li>
+                <div class="input-field right">
+                  <input id="search" type="search" required>
+                  <label for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+            </li>
+        </ul>
+        <ul class=" right hide-on-med-and-down">
+            <li ><a id="notification" ng-blur="markread()" ng-focus="count = 1" ng-init="count=0" class="dropdown-button"  ng-href="#!" data-activates="dropdown" data-beloworigin="true"><i class="material-icons">notifications_none</i></a></li>
+            <label  class="newnoti"><span class="left-noti">{{arr.length}}</span></label>
+            <li><a href=""><i class="material-icons">mail_outline</i></a></li>
+            <li>
+                <div class="chip">
+                    <img src="images/yuna.jpg" alt="Contact Person">
+                    Jane Doe
+                </div>
+            </li>
+        </ul>
+
+
+    <!-- Dropdown Structure -->
+    <div ng-show="count" class="triangle"></div>
+    <ul id="dropdown" class="dropdown-content collection">
+        <div class="inner-content">
+            <li><h5 class="center" style="color:grey;">Notifications</h5></li>
+            <li class="divider"></li>
+            <li class="collection-item avatar" ng-repeat="entry in arr">
+                <img src="images/yuna.jpg" alt="" class="circle">
+                <p><b> {{entry.name}}</b> {{entry.post}}.</p>
+                
+            </li>
+        </div>
+    </ul>
+  </nav>
+
+
+
+  </div>
+ <!-- <div class="row-size" ng-view></div>  -->
+
+  
+
+  <div class="hiddendiv">
+    <!-- Angular Material Dependencies-->
+    <script src="/javascripts/global/angular.min.js"></script>
+    <script src="/javascripts/global/angular-route.min.js"></script>
+    <script src="/javascripts/global/jquery.js"></script>
+    <script src="/javascripts/global/materialize.min.js"></script>
+    
+    <script src="/javascripts/MainCtrl.js"></script>
+    <!-- <script src="/javascripts/app.routes.js"></script> -->
+
+    <!-- <script src="/javascripts/app.routes.js"></script> -->
+  </div>
+</body>
+</html>
